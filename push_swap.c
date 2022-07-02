@@ -6,7 +6,7 @@
 /*   By: ede-alme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 09:57:07 by ede-alme          #+#    #+#             */
-/*   Updated: 2022/07/01 20:34:35 by ede-alme         ###   ########.fr       */
+/*   Updated: 2022/07/02 15:40:36 by ede-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,10 @@ int	main(int argc, char **argv)
 	int		reverse;
 
 	i = 0;
-	lists.temp_args = 0;
 	if (argc < 2)
 		return (0);
 	lists.stack_a = malloc(sizeof(int) * (argc - 1));
-	lists.stack_b = NULL;
+	lists.stack_b = malloc(sizeof(int) * (argc - 1));
 	lists.args_a = argc - 1;
 	lists.args_b = 0;
 	while (i < (argc - 1))
@@ -70,8 +69,5 @@ int	main(int argc, char **argv)
 			if (lists.stack_a[i - 1] == lists.stack_a[reverse])
 				ft_exit("Error duplicate argument!", &lists);
 	}
-	//ft_shortlist(&lists);
-	ft_pb(&lists);
-	printf("valor da lista b -> %i\n", lists.stack_a[0]);
 	ft_exit(0, &lists);
 }

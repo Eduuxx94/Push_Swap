@@ -6,7 +6,7 @@
 /*   By: ede-alme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 16:29:55 by ede-alme          #+#    #+#             */
-/*   Updated: 2022/07/01 16:49:00 by ede-alme         ###   ########.fr       */
+/*   Updated: 2022/07/02 15:37:19 by ede-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ typedef struct s_lists {
 	int		*stack_b;
 	int		args_a;
 	int		args_b;
-	int		temp_args;
 }			t_lists;
 
 //Push Swap functions					->
@@ -32,12 +31,12 @@ void	ft_exit(char *str, t_lists *lists);
 void	ft_shortlist(t_lists *lists);
 
 //Push Swap operations1					->
-void	ft_sa(t_lists *lists);
+void	ft_pa_pb(t_lists *lists, char *operation);
+int		exec_pa_pb(int *stack_in, int *stack_out, int *args_in, int *args_out);
 void	ft_sb(t_lists *lists);
 void	ft_ss(t_lists *lists);
 void	ft_pa(t_lists *lists);
 void	ft_pb(t_lists *lists);
-int		*ft_stackcpy(int *src, int size, t_lists *lists);
 
 //Push Swap operations2					->
 void	ft_ra(t_lists *lists);
