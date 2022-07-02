@@ -6,7 +6,7 @@
 /*   By: ede-alme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 16:28:23 by ede-alme          #+#    #+#             */
-/*   Updated: 2022/07/02 18:02:02 by ede-alme         ###   ########.fr       */
+/*   Updated: 2022/07/02 18:51:17 by ede-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ void	ft_ra_rb(int *stack, int args, char *operation)
 			i++;
 		}
 		stack[i] = temp;
-		printf("%s\n", operation);
+		if (operation)
+			printf("%s\n", operation);
 	}
 }

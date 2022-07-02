@@ -6,7 +6,7 @@
 /*   By: ede-alme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 09:57:07 by ede-alme          #+#    #+#             */
-/*   Updated: 2022/07/02 17:40:06 by ede-alme         ###   ########.fr       */
+/*   Updated: 2022/07/02 19:33:50 by ede-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,12 @@ int	main(int argc, char **argv)
 			if (lists.stack_a[i - 1] == lists.stack_a[reverse])
 				ft_exit("Error duplicate argument!", &lists);
 	}
-	ft_ra_rb(lists.stack_a, lists.args_a, "ra");
-	ft_ra_rb(lists.stack_b, lists.args_b, "rb");
-	ft_ra_rb(lists.stack_a, lists.args_a, "ra");
-	ft_ra_rb(lists.stack_a, lists.args_a, "ra");
-	printf("O valor 0 -> %i\n", lists.stack_a[0]);
-	printf("O valor 1 -> %i\n", lists.stack_a[1]);
-	printf("O valor 2 -> %i\n", lists.stack_a[2]);
+	ft_pa_pb(&lists, "pb");
+	ft_pa_pb(&lists, "pb");
+	ft_rrr(&lists, "rrr");
+	printf("O valor a0 -> %i\n", lists.stack_a[0]);
+	printf("O valor a1 -> %i\n", lists.stack_a[1]);
+	printf("O valor a2 -> %i\n", lists.stack_b[0]);
+	printf("O valor a3 -> %i\n", lists.stack_b[1]);
 	ft_exit(0, &lists);
 }
