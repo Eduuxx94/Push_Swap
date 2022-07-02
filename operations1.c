@@ -6,7 +6,7 @@
 /*   By: ede-alme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 16:28:23 by ede-alme          #+#    #+#             */
-/*   Updated: 2022/07/02 15:45:27 by ede-alme         ###   ########.fr       */
+/*   Updated: 2022/07/02 18:02:02 by ede-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,21 @@ int	exec_pa_pb(int *stack_in, int *stack_out, int *args_in, int *args_out)
 	return (0);
 }
 
-void	ft_ra(t_lists *lists)
+void	ft_ra_rb(int *stack, int args, char *operation)
 {
-	
+	int	temp;
+	int	i;
+
+	if (args >= 2)
+	{
+		i = 0;
+		temp = stack[0];
+		while (i < args - 1)
+		{
+			stack[i] = stack[i + 1];
+			i++;
+		}
+		stack[i] = temp;
+		printf("%s\n", operation);
+	}
 }
