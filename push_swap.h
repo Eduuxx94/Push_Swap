@@ -6,7 +6,7 @@
 /*   By: ede-alme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 16:29:55 by ede-alme          #+#    #+#             */
-/*   Updated: 2022/07/04 16:08:50 by ede-alme         ###   ########.fr       */
+/*   Updated: 2022/07/04 20:28:27 by ede-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	ft_rra_rrb(int *stack, int args, char *operation);
 void	ft_rrr(t_lists *lists, char *operation);
 
 //Push Swap utils functions into			->
+void	ft_hugeshortlist(t_lists *lists);
 void	ft_check_lowest(t_lists *lists);
 int		ft_check_front(t_lists *lists);
 int		ft_check_back(t_lists *lists);

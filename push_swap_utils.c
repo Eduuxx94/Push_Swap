@@ -6,11 +6,34 @@
 /*   By: ede-alme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 10:10:41 by ede-alme          #+#    #+#             */
-/*   Updated: 2022/07/04 16:15:28 by ede-alme         ###   ########.fr       */
+/*   Updated: 2022/07/04 21:09:55 by ede-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_hugeshortlist(t_lists *lists)
+{
+	while (lists->args_a > 1)
+	{
+		ft_check_lowest(lists);
+		while (lists->stack_a[0] != lists->lowest)
+		{
+			if (lists->stack_a[0] == lists->second_lowest)
+				ft_pa_pb(lists, "pb");
+			if ((ft_check_front(lists)) - (ft_check_back(lists)) > 0
+				&& lists->stack_a[0] != lists->lowest)
+				ft_rra_rrb(lists->stack_a, lists->args_a, "rra");
+			else if (lists->stack_a[0] != lists->lowest)
+				ft_ra_rb(lists->stack_a, lists->args_a, "ra");
+		}
+		ft_pa_pb(lists, "pb");
+		if (lists->second_lowest == lists->stack_b[1])
+			ft_sa_sb(lists->stack_b, lists->args_b, "sb");
+	}
+	while (lists->args_b >= 1)
+		ft_pa_pb(lists, "pa");
+}
 
 void	ft_check_lowest(t_lists *lists)
 {
