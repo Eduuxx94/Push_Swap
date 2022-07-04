@@ -6,37 +6,66 @@
 /*   By: ede-alme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 09:57:07 by ede-alme          #+#    #+#             */
-/*   Updated: 2022/07/03 10:53:48 by ede-alme         ###   ########.fr       */
+/*   Updated: 2022/07/04 19:01:13 by ede-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_check_lowest(t_lists *lists)
+void	ft_keepshortlist(t_lists *lists)
 {
-	int	i;
-
-	i = 0;
-	while (i < lists->args_a)
+	if (lists->args_a == 2)
+		if (lists->stack_a[0] > lists->stack_a[1])
+			ft_sa_sb(lists->stack_a, lists->args_a, "sa");
+	if (lists->args_a > 3 && ft_checkisorder(lists->stack_a, lists->args_a))
 	{
-		if (lists->stack_a[i] < lists->lowest)
-			lists->lowest = lists->stack_a[i];
-		i++;
+		while (lists->args_a > 1)
+		{
+			ft_check_lowest(lists);
+			while (lists->stack_a[0] != lists->lowest)
+			{
+				if ((ft_check_front(lists)) - (ft_check_back(lists)) > 0
+					&& lists->stack_a[0] != lists->lowest)
+					ft_rra_rrb(lists->stack_a, lists->args_a, "rra");
+				else if (lists->stack_a[0] != lists->lowest)
+					ft_ra_rb(lists->stack_a, lists->args_a, "ra");
+			}
+			ft_pa_pb(lists, "pb");
+			if (!ft_checkisorder(lists->stack_a, lists->args_a))
+				break ;
+		}
+		while (lists->args_b >= 1)
+			ft_pa_pb(lists, "pa");
 	}
 }
 
 void	ft_shortlist(t_lists *lists)
 {
-	while (lists->args_a > 1)
+	if (lists->args_a == 3)
 	{
-		ft_check_lowest(lists);
-		while (lists->stack_a[0] != lists->lowest)
+		if (lists->stack_a[2] < lists->stack_a[0] && lists->stack_a[0]
+			< lists->stack_a[1])
+			ft_ra_rb(lists->stack_a, lists->args_a, "rra");
+		else if (lists->stack_a[0] > lists->stack_a[1] && lists->stack_a[2]
+			> lists->stack_a[0])
+			ft_sa_sb(lists->stack_a, lists->args_a, "sa");
+		else if (lists->stack_a[0] < lists->stack_a[2] && lists->stack_a[1]
+			> lists->stack_a[2])
+		{
+			ft_rra_rrb(lists->stack_a, lists->args_a, "rra");
+			ft_sa_sb(lists->stack_a, lists->args_a, "sa");
+		}
+		else if (lists->stack_a[0] > lists->stack_a[1] && lists->stack_a[1]
+			< lists->stack_a[2])
 			ft_ra_rb(lists->stack_a, lists->args_a, "ra");
-		ft_pa_pb(lists, "pb");
-		lists->lowest = 2147483647;
+		else if (lists->stack_a[0] > lists->stack_a[1] && lists->stack_a[1]
+			> lists->stack_a[2])
+		{
+			ft_ra_rb(lists->stack_a, lists->args_a, "ra");
+			ft_sa_sb(lists->stack_a, lists->args_a, "sa");
+		}
 	}
-	while (lists->args_b >= 1)
-		ft_pa_pb(lists, "pa");
+	ft_keepshortlist(lists);
 }
 
 void	ft_exit(char *str, t_lists *lists)
@@ -82,6 +111,7 @@ int	main(int argc, char **argv)
 	lists.args_a = argc - 1;
 	lists.args_b = 0;
 	lists.lowest = 2147483647;
+	lists.second_lowest = 2147483647;
 	while (i < (argc - 1))
 	{
 		reverse = i;
@@ -92,5 +122,6 @@ int	main(int argc, char **argv)
 				ft_exit("Error duplicate argument!", &lists);
 	}
 	ft_shortlist(&lists);
+	//printf("Lista: %i %i %i %i %i %i %i %i %i %i %i %i %i %i\n", lists.stack_a[0], lists.stack_a[1], lists.stack_a[2], lists.stack_a[3], lists.stack_a[4], lists.stack_a[5], lists.stack_a[6], lists.stack_a[7], lists.stack_a[8], lists.stack_a[9], lists.stack_a[10], lists.stack_a[11], lists.stack_a[12], lists.stack_a[13]);
 	ft_exit(0, &lists);
 }
