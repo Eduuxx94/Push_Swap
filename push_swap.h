@@ -6,7 +6,7 @@
 /*   By: ede-alme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 16:29:55 by ede-alme          #+#    #+#             */
-/*   Updated: 2022/07/04 20:28:27 by ede-alme         ###   ########.fr       */
+/*   Updated: 2022/07/13 11:27:45 by ede-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,23 @@
 typedef struct s_lists {
 	int		*stack_a;
 	int		*stack_b;
+	int		*stack_temp;
 	int		args_a;
 	int		args_b;
 	int		lowest;
-	int		second_lowest;
+	int		biggest;
+	int		i;
+	int		count;
+	int		lower;
+	int		incase;
+	int		divisor;
+	int		remaing;
+	int		volume;
 }			t_lists;
 
 //Push Swap main functions					->
 void	ft_keepshortlist(t_lists *lists);
-void	ft_shortlist(t_lists *lists);
+void	ft_short_three_list(t_lists *lists);
 void	ft_exit(char *str, t_lists *lists);
 int		ft_toint(char *str, t_lists *lists);
 int		main(int argc, char **argv);
@@ -47,9 +55,16 @@ void	ft_rrr(t_lists *lists, char *operation);
 
 //Push Swap utils functions into			->
 void	ft_hugeshortlist(t_lists *lists);
-void	ft_check_lowest(t_lists *lists);
-int		ft_check_front(t_lists *lists);
-int		ft_check_back(t_lists *lists);
+void	ft_check_lowest(t_lists *lists, int *stack, int args);
+int		ft_check_front(t_lists *lists, int *stack, int args, char *step);
+int		ft_check_back(t_lists *lists, int *stack, int args, char *step);
 int		ft_checkisorder(int *stack, int args);
+
+//Push Swap Huge Rules to					->
+void	ft_renumber(t_lists *lists);
+void	ft_check_biggest(t_lists *lists, int *stack, int args);
+void	ft_orderhuge(t_lists *lists);
+void	ft_start(t_lists *lists, int argc, char **argv);
+void	ft_keepshortlist_five(t_lists *lists);
 
 #endif
