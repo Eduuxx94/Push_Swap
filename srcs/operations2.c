@@ -6,11 +6,11 @@
 /*   By: ede-alme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 16:38:58 by ede-alme          #+#    #+#             */
-/*   Updated: 2022/07/04 18:47:59 by ede-alme         ###   ########.fr       */
+/*   Updated: 2022/07/18 11:34:13 by ede-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	ft_rr(t_lists *lists, char *operation)
 {
@@ -18,7 +18,8 @@ void	ft_rr(t_lists *lists, char *operation)
 	{
 		ft_ra_rb(lists->stack_a, lists->args_a, NULL);
 		ft_ra_rb(lists->stack_b, lists->args_b, NULL);
-		printf("%s\n", operation);
+		write(1, operation, 2);
+		write(1, "\n", 1);
 	}
 }
 
@@ -38,7 +39,10 @@ void	ft_rra_rrb(int *stack, int args, char *operation)
 		}
 		stack[i] = temp;
 		if (operation)
-			printf("%s\n", operation);
+		{
+			write(1, operation, 3);
+			write(1, "\n", 1);
+		}
 	}
 }
 
@@ -48,6 +52,7 @@ void	ft_rrr(t_lists *lists, char *operation)
 	{
 		ft_rra_rrb(lists->stack_a, lists->args_a, NULL);
 		ft_rra_rrb(lists->stack_b, lists->args_b, NULL);
-		printf("%s\n", operation);
+		write(1, operation, 3);
+		write(1, "\n", 1);
 	}
 }

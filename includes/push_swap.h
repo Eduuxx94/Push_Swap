@@ -6,15 +6,13 @@
 /*   By: ede-alme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 16:29:55 by ede-alme          #+#    #+#             */
-/*   Updated: 2022/07/13 11:27:45 by ede-alme         ###   ########.fr       */
+/*   Updated: 2022/07/18 11:36:26 by ede-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# include <stdio.h>
 # include <unistd.h>
-# include <fcntl.h>
 # include <stdlib.h>
 
 typedef struct s_lists {

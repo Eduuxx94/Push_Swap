@@ -6,11 +6,11 @@
 /*   By: ede-alme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 17:51:25 by ede-alme          #+#    #+#             */
-/*   Updated: 2022/07/13 11:35:21 by ede-alme         ###   ########.fr       */
+/*   Updated: 2022/07/18 11:45:09 by ede-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	ft_renumber(t_lists *lists)
 {
@@ -101,7 +101,7 @@ void	ft_start(t_lists *lists, int argc, char **argv)
 		i++;
 		while (--reverse >= 0)
 			if (lists->stack_a[i - 1] == lists->stack_a[reverse])
-				ft_exit("Error duplicate argument!", lists);
+				ft_exit("Error\n", lists);
 	}
 	if (lists->args_a >= 90 && lists->args_a < 300)
 		lists->volume = 35;
@@ -112,7 +112,7 @@ void	ft_start(t_lists *lists, int argc, char **argv)
 
 void	ft_keepshortlist_five(t_lists *lists)
 {
-	if (lists->args_a == 5)
+	if (lists->args_a == 5 || lists->args_a == 4)
 	{
 		if (!ft_checkisorder(lists->stack_a, lists->args_a))
 			return ;

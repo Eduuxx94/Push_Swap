@@ -6,11 +6,11 @@
 /*   By: ede-alme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 10:10:41 by ede-alme          #+#    #+#             */
-/*   Updated: 2022/07/13 11:22:50 by ede-alme         ###   ########.fr       */
+/*   Updated: 2022/07/18 11:34:12 by ede-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	ft_hugeshortlist(t_lists *lists)
 {

@@ -6,11 +6,11 @@
 /*   By: ede-alme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 16:28:23 by ede-alme          #+#    #+#             */
-/*   Updated: 2022/07/02 18:51:17 by ede-alme         ###   ########.fr       */
+/*   Updated: 2022/07/18 11:34:10 by ede-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	ft_sa_sb(int *stack, int args, char *operation)
 {
@@ -21,7 +21,8 @@ void	ft_sa_sb(int *stack, int args, char *operation)
 		temp = stack[0];
 		stack[0] = stack[1];
 		stack[1] = temp;
-		printf("%s\n", operation);
+		write(1, operation, 2);
+		write(1, "\n", 1);
 	}
 }
 
@@ -37,7 +38,7 @@ void	ft_ss(t_lists *lists)
 		temp = lists->stack_b[0];
 		lists->stack_b[0] = lists->stack_b[1];
 		lists->stack_b[1] = temp;
-		printf("ss\n");
+		write(1, "ss\n", 3);
 	}
 }
 
@@ -45,10 +46,12 @@ void	ft_pa_pb(t_lists *lists, char *operation)
 {
 	if (operation[1] == 'a' && exec_pa_pb(lists->stack_a, lists->stack_b,
 			&lists->args_a, &lists->args_b))
-		printf("%s\n", operation);
+		write(1, operation, 2);
 	if (operation[1] == 'b' && exec_pa_pb(lists->stack_b, lists->stack_a,
 			&lists->args_b, &lists->args_a))
-		printf("%s\n", operation);
+		write(1, operation, 2);
+	if (operation[1] == 'a' || operation[1] == 'b')
+		write(1, "\n", 1);
 }
 
 int	exec_pa_pb(int *stack_in, int *stack_out, int *args_in, int *args_out)
@@ -93,6 +96,9 @@ void	ft_ra_rb(int *stack, int args, char *operation)
 		}
 		stack[i] = temp;
 		if (operation)
-			printf("%s\n", operation);
+		{
+			write(1, operation, 2);
+			write(1, "\n", 1);
+		}
 	}
 }

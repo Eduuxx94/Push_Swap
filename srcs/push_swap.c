@@ -6,11 +6,11 @@
 /*   By: ede-alme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 09:57:07 by ede-alme          #+#    #+#             */
-/*   Updated: 2022/07/14 09:55:18 by ede-alme         ###   ########.fr       */
+/*   Updated: 2022/07/18 13:29:38 by ede-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	ft_keepshortlist(t_lists *lists)
 {
@@ -47,7 +47,7 @@ void	ft_short_three_list(t_lists *lists)
 	{
 		if (lists->stack_a[2] < lists->stack_a[0] && lists->stack_a[0]
 			< lists->stack_a[1])
-			ft_ra_rb(lists->stack_a, lists->args_a, "rra");
+			ft_rra_rrb(lists->stack_a, lists->args_a, "rra");
 		else if (lists->stack_a[0] > lists->stack_a[1] && lists->stack_a[2]
 			> lists->stack_a[0])
 			ft_sa_sb(lists->stack_a, lists->args_a, "sa");
@@ -71,8 +71,8 @@ void	ft_short_three_list(t_lists *lists)
 
 void	ft_exit(char *str, t_lists *lists)
 {
-	if (str)
-		printf("%s\n", str);
+	if (str && str[5] == '\n')
+		write(1, str, 6);
 	if (lists->stack_a)
 		free(lists->stack_a);
 	if (lists->stack_b)
@@ -92,9 +92,9 @@ int	ft_toint(char *str, t_lists *lists)
 	while (*str && (*str >= '0' && *str <= '9'))
 		value = (value * 10) + (*str++ - 48);
 	if (*str)
-		ft_exit("Error insert int arg", lists);
+		ft_exit("Error\n", lists);
 	if ((value * signal) > 2147483647 || (value * signal) < -2147483648)
-		ft_exit("Error, to long size arg", lists);
+		ft_exit("Error\n", lists);
 	return (value * signal);
 }
 
