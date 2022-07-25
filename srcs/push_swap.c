@@ -89,6 +89,8 @@ int	ft_toint(char *str, t_lists *lists)
 	value = 0;
 	if (*str == '-' || *str == '+')
 		str++;
+	if (!*str)
+		ft_exit("Error\n", lists);
 	while (*str && (*str >= '0' && *str <= '9'))
 		value = (value * 10) + (*str++ - 48);
 	if (*str)
