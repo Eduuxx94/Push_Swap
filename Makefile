@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ede-alme <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: ede-alme <ede-alme@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/18 10:52:54 by ede-alme          #+#    #+#              #
-#    Updated: 2022/07/18 13:43:49 by ede-alme         ###   ########.fr        #
+#    Updated: 2022/07/26 18:51:59 by ede-alme         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ all: $(NAME)
 
 $(OBJ_PATH)%.o:$(SRC_PATH)%.c
 	@mkdir -p $(OBJ_PATH)
-	$(CC) $(CFLAGS) -I $(INCDIR) -o $@ -c $<
+	$(CC) -I $(INCDIR) -o $@ -c $<
 
 $(NAME): $(OBJ) 
 	$(CC) $(OBJ) -o $@
