@@ -10,15 +10,12 @@
 #                                                                              #
 # **************************************************************************** #
 
-# Binary
 NAME = push_swap
 
-# Path
 SRC_PATH = ./srcs/
 OBJ_PATH = ./objs/
 INCDIR = includes
 
-# Files name
 SRC_NAME = huge_rules.c \
 			operations1.c \
 			operations2.c \
@@ -27,12 +24,10 @@ SRC_NAME = huge_rules.c \
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
-# Files resource
 SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
 
-# Flags
-CC = gcc $(CFLAGS)
+CC = gcc -fsanitize=address
 CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
@@ -45,9 +40,9 @@ $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $@
 
 clean:
-	rm -rf $(OBJ_PATH)
+	@rm -rf $(OBJ_PATH)
 
 fclean: clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
 
 re: fclean all
