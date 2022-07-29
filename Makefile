@@ -6,7 +6,7 @@
 #    By: ede-alme <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/18 10:52:54 by ede-alme          #+#    #+#              #
-#    Updated: 2022/07/27 08:33:00 by ede-alme         ###   ########.fr        #
+#    Updated: 2022/07/29 10:21:00 by ede-alme         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,17 +27,17 @@ OBJ_NAME = $(SRC_NAME:.c=.o)
 SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
 OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
 
-CC = gcc -fsanitize=address
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
 $(OBJ_PATH)%.o:$(SRC_PATH)%.c
 	@mkdir -p $(OBJ_PATH)
-	$(CC) -I $(INCDIR) -o $@ -c $<
+	$(CC) $(CFLAGS) -I $(INCDIR) -o $@ -c $<
 
 $(NAME): $(OBJ) 
-	$(CC) $(OBJ) -o $@
+	$(CC) $(CFLAGS) $(OBJ) -o $@
 
 clean:
 	@rm -rf $(OBJ_PATH)
